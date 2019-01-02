@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import TamagotchiMe from './components/TamagotchiMe'
-import Login from './components/Login';
-import Register from './components/Register';
+import TamagotchiMe from './Components/TamagotchiMe'
+import Login from './Components/Login';
+import Register from './Components/Register';
 import './App.css';
 
 class App extends Component {

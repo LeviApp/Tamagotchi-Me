@@ -8,6 +8,11 @@ class Register extends Component {
         username: '',
         password1: '',
         password2: '',
+        age: '',
+        gender: '',
+        weight: '',
+        height: '',
+        activityLevel: 1,
         accountCreated: false,
         response: {
             status: 201,
@@ -17,10 +22,13 @@ class Register extends Component {
     inputChangeHandler = event => {
         this.setState({ [event.target.name]: event.target.value })
     };
+    activityLevelChangeHandler = event => {
+        this.setState({ activityLevel: event.target.value})
+    };
     submitHandler = event => {
         event.preventDefault();
         //const local = 'http://127.0.0.1:8000'
-        const herokuUrl = 'https://jenniferplayer-lambdamud.herokuapp.com'
+        const herokuUrl = '';
         axios.post(`${herokuUrl}/api/registration`, this.state)
             .then(res => {
                 console.log(res.data);
@@ -70,18 +78,54 @@ class Register extends Component {
                         <input
                             value={this.state.password2}
                             onChange={this.inputChangeHandler}
-                            placeholder="Password again"
+                            placeholder="Password"
                             type="password"
                             name="password2" />
                     </div>
                     <div>
+                        <p>Age</p>
+                        <input
+                            value={this.state.age}
+                            onChange={this.inputChangeHandler}
+                            placeholder="Age"
+                            type="text"
+                            name="age" />
+                    </div>
+                    <div>
+                        <p>Weight in kilograms</p>
+                        <input
+                            value={this.state.weight}
+                            onChange={this.inputChangeHandler}
+                            placeholder="Weight"
+                            type="text"
+                            name="weight" />
+                    </div>
+                    <div>
+                        <p>Height in Centimeters</p>
+                        <input
+                            value={this.state.height}
+                            onChange={this.inputChangeHandler}
+                            placeholder="Height"
+                            type="text"
+                            name="height" />
+                    </div>
+                    <div>
+                        <p>Activity Level</p>
+                        <select value={this.state.activityLevel} onChange={this.activityLevelChangeHandler}>
+                            <option value="1">Sedentary</option>
+                            <option value="2" >Lightly Active</option>
+                            <option value="3" >Active</option>
+                            <option value="4">Very Active</option>
+                        </select>
+                    </div>
+                    <div>
                         <button type="submit">
-                            Create Account
+                            Create your Tamagotchi
                         </button>
                     </div>
-                    <Link to='/login'><a>Account created? Login Here</a></Link>
+                    <Link to='/login'><a>Account already created? Login Here</a></Link>
                     <div> {this.state.response.content.error}</div>
-                    {this.state.accountCreated ? <div className='play-link'><Link to="/play"> Start</Link></div> : null}
+                    {this.state.accountCreated ? <div><Link to="/TamagotchiMe"> Create your Tamagotchi</Link></div> : null}
 
                 </form>
             </div>

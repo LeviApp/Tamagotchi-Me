@@ -22,7 +22,7 @@ class Login extends Component {
             password: this.state.password
         }
         //const local = 'http://127.0.0.1:8000'
-        const herokuUrl = 'https://jenniferplayer-lambdamud.herokuapp.com'
+        const herokuUrl = '';
         axios.post(`${herokuUrl}/api/login`, credentials).then(res => {
             console.log(res.data);
             const token = res.data.key;
