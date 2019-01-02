@@ -22,7 +22,7 @@ class Login extends Component {
             password: this.state.password
         }
         //const local = 'http://127.0.0.1:8000'
-        const herokuUrl = 'https://jenniferplayer-lambdamud.herokuapp.com'
+        const herokuUrl = '';
         axios.post(`${herokuUrl}/api/login`, credentials).then(res => {
             console.log(res.data);
             const token = res.data.key;
@@ -42,11 +42,12 @@ class Login extends Component {
                 })
             });
         console.log('state', this.state);
+        this.props.history.push('/TamagatchiMe');
     };
     render() {
         return (
             <div className="login-container">
-                <form className='login-form' onSubmit={this.submitHandler}>
+                <form className='login-form' onSubmit={this.submitHandler.bind(this)}>
                     <h1>Sign In</h1>
                     <div>
                         <p>Username</p>
@@ -71,9 +72,8 @@ class Login extends Component {
                             Sign In
                         </button>
                     </div>
-                    <Link to='/Register'> <a>Don't have an account? Register Here</a> </Link>
+                    <Link to='/Register'> <p>Don't have an account? Register Here</p> </Link>
                     <div> <p>{this.state.response.content.error}</p></div>
-                    {this.state.authorized ? <div className='play-link'><Link to="/play"> Start</Link></div> : null}
                 </form>
             </div>
         );
