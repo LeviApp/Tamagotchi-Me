@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './Register.css';
+import './Edit.css';
 
-class Register extends Component {
+class Edit extends Component {
     state = {
-        username: '',
-        password1: '',
-        password2: '',
         age: '',
         gender: '',
         weight: '',
         height: '',
         activityLevel: 1,
-        accountCreated: false,
+        accountCreated: true,
         response: {
             status: 201,
             content: {}
@@ -23,13 +20,13 @@ class Register extends Component {
         this.setState({ [event.target.name]: event.target.value })
     };
     activityLevelChangeHandler = event => {
-        this.setState({ activityLevel: event.target.value})
+        this.setState({ activityLevel: event.target.value })
     };
     submitHandler = event => {
         event.preventDefault();
         //const local = 'http://127.0.0.1:8000'
         const herokuUrl = '';
-        axios.post(`${herokuUrl}/api/registration`, this.state)
+        axios.post(`${herokuUrl}/api/edit`, this.state)
             .then(res => {
                 console.log(res.data);
                 const token = res.data.key;
@@ -53,36 +50,9 @@ class Register extends Component {
     };
     render() {
         return (
-            <div className="register-container">
-                <form className='register-form' onSubmit={this.submitHandler.bind(this)}>
-                    <h1>Register</h1>
-                    <div>
-                        <p>Username</p>
-                        <input
-                            value={this.state.username}
-                            onChange={this.inputChangeHandler}
-                            placeholder="Username"
-                            type="text"
-                            name="username" />
-                    </div>
-                    <div>
-                        <p>Password</p>
-                        <input
-                            value={this.state.password1}
-                            onChange={this.inputChangeHandler}
-                            placeholder="Password"
-                            type="password"
-                            name="password1" />
-                    </div>
-                    <div>
-                        <p>Confirm Password</p>
-                        <input
-                            value={this.state.password2}
-                            onChange={this.inputChangeHandler}
-                            placeholder="Password"
-                            type="password"
-                            name="password2" />
-                    </div>
+            <div className="edit-container">
+                <form className='edit-form' onSubmit={this.submitHandler.bind(this)}>
+                    <h1>Edit Information</h1>
                     <div>
                         <p>Age</p>
                         <input
@@ -114,21 +84,21 @@ class Register extends Component {
                         <p>Activity Level</p>
                         <select value={this.state.activityLevel} onChange={this.activityLevelChangeHandler}>
                             <option value="1">Sedentary</option>
-                            <option value="2" >Lightly Active</option>
-                            <option value="3" >Active</option>
+                            <option value="2">Lightly Active</option>
+                            <option value="3">Active</option>
                             <option value="4">Very Active</option>
                         </select>
                     </div>
                     <div>
                         <button type="submit">
-                            Create your Tamagotchi
+                            Edit your Tamagotchi
                         </button>
                     </div>
-                    <Link to='/login'><p>Account already created? Login Here</p></Link>
                     <div> {this.state.response.content.error}</div>
+                    {this.state.accountCreated ? <div><Link to="/TamagotchiMe"> Create your Tamagotchi</Link></div> : null}
                 </form>
             </div>
         );
     }
 }
-export default Register; 
+export default Edit; 
