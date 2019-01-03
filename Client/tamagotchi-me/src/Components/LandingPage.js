@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {ReactComponent as Logo} from '../Images/logo.svg'
+import {ReactComponent as Logo} from '../Images/logohead.svg'
 
 import './LandingPage.scss'
 
@@ -9,15 +9,22 @@ class LandingPage extends Component {
         return (
             <div className="app-container">
                 <div className="logo-group">
-                <Logo className="logo" />
-                <div className="logo-text">
+                <Logo className="logohead" />
                 <h1>TamagotchiMe!</h1>
                 <p>Keep track of your healthy lifestyle. Keep Tamagotchi happy to earn prizes.</p>
                 </div>
+                <div className='mainoptions'>
+
+                <div className='option'>
+                <span>Already registered?</span>
+                <Link className='login' to='/Login'>Login Here</Link>
                 </div>
-                <Link to='/Register'> <p>Don't have an account? Register Here</p> </Link>
-                <Link to='/Login'> <p>Already registered? Login Here</p> </Link>
-                <img src={require('../Images/blondepinkhappy.png')} />
+
+                <div className='option'>
+                <span>Don't have an account?</span>
+                <Link className='register' to='/Register'>Register Here</Link>
+                </div>
+                </div>
                 
             </div>
         );
