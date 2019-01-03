@@ -14,7 +14,7 @@ class Tamagotchi(models.Model):
  Sedentary = 'Sedentary'
  Lightly_Active = 'Lightly Active'
  Moderately_Active ='Moderately Active' 
- Very Active = 'Very Active'
+ Very_Active = 'Very Active'
  ActivityChoices = (
         (Sedentary, 'Sedentary'),
         (Lightly_Active, 'Lightly Active'),
@@ -26,7 +26,7 @@ class Tamagotchi(models.Model):
  activity_level = models.CharField(
      choices = ActivityChoices,
      default = Moderately_Active,
- 
+     max_length = 201,
  )
 
  FEMALE = 'Female'
@@ -45,7 +45,7 @@ class Tamagotchi(models.Model):
 
 # Create your models here.
 class FoodItem(models.Model):
-    name = models.CharField(max_length=255, null=False)
+    name = models.CharField(max_length=257, null=False)
     sd = models.CharField(max_length=255, )
     group = models.CharField(max_length=255, )
     cf = models.CharField(max_length=255, )
