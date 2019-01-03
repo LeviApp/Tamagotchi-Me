@@ -6,7 +6,7 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Edit from './Components/Edit';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render() {
