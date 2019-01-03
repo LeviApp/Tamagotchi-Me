@@ -7,8 +7,26 @@ class Tamagotchi(models.Model):
  height = models.IntegerField(default=0)
  weight = models.IntegerField(default=0)
  age = models.IntegerField(default=0)
-
+ TDEE = models.IntegerField(default=0)
  user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+ Sedentary = 'Sedentary'
+ Lightly_Active = 'Lightly Active'
+ Moderately_Active ='Moderately Active' 
+ Very Active = 'Very Active'
+ ActivityChoices = (
+        (Sedentary, 'Sedentary'),
+        (Lightly_Active, 'Lightly Active'),
+        (Moderately_Active,'Moderately_Active'),
+        (Very_Active,'Very Active')
+        
+    )
+
+ activity_level = models.CharField(
+     choices = ActivityChoices,
+     default = Moderately_Active,
+ 
+ )
 
  FEMALE = 'Female'
  MALE = 'Male'
