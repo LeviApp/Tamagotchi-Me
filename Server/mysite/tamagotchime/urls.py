@@ -1,10 +1,11 @@
 from django.urls import path
 
-from . import views
+from .views import FoodItemTest, landing, dashboard, journal, settings
 
 urlpatterns = [
-    path('', views.landing, name='landing'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-    path('dashboard/journal/', views.journal, name='journal'),
-    path('dashboard/settings/', views.settings, name='settings'),
+    path('', landing, name='landing'),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('dashboard/journal/', journal, name='journal'),
+    path('dashboard/settings/', settings, name='settings'),
+    path('fooditemtest/', FoodItemTest.as_view(), name='fooditemtest'),
 ]
