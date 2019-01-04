@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './Register.css';
+import './Register.scss';
+import {ReactComponent as Logo} from '../Images/logohead.svg'
 
 class Register extends Component {
     state = {
@@ -54,10 +55,15 @@ class Register extends Component {
     render() {
         return (
             <div className="register-container">
+
+             <div className="logo-header">
+                <Logo className="logohead"/>
+                <h1>Register</h1>
+            </div>
+
                 <form className='register-form' onSubmit={this.submitHandler.bind(this)}>
-                    <h1>Register</h1>
-                    <div>
-                        <p>Username</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Username</p>
                         <input
                             value={this.state.username}
                             onChange={this.inputChangeHandler}
@@ -65,8 +71,8 @@ class Register extends Component {
                             type="text"
                             name="username" />
                     </div>
-                    <div>
-                        <p>Password</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Password</p>
                         <input
                             value={this.state.password1}
                             onChange={this.inputChangeHandler}
@@ -74,8 +80,8 @@ class Register extends Component {
                             type="password"
                             name="password1" />
                     </div>
-                    <div>
-                        <p>Confirm Password</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Confirm Password</p>
                         <input
                             value={this.state.password2}
                             onChange={this.inputChangeHandler}
@@ -83,8 +89,8 @@ class Register extends Component {
                             type="password"
                             name="password2" />
                     </div>
-                    <div>
-                        <p>Age</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Age</p>
                         <input
                             value={this.state.age}
                             onChange={this.inputChangeHandler}
@@ -92,8 +98,8 @@ class Register extends Component {
                             type="text"
                             name="age" />
                     </div>
-                    <div>
-                        <p>Weight in kilograms</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Weight in kilograms</p>
                         <input
                             value={this.state.weight}
                             onChange={this.inputChangeHandler}
@@ -101,8 +107,8 @@ class Register extends Component {
                             type="text"
                             name="weight" />
                     </div>
-                    <div>
-                        <p>Height in Centimeters</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Height in Centimeters</p>
                         <input
                             value={this.state.height}
                             onChange={this.inputChangeHandler}
@@ -110,8 +116,8 @@ class Register extends Component {
                             type="text"
                             name="height" />
                     </div>
-                    <div>
-                        <p>Activity Level</p>
+                    <div className='register-info'>
+                        <p className='register-text'>Activity Level</p>
                         <select value={this.state.activityLevel} onChange={this.activityLevelChangeHandler}>
                             <option value="1">Sedentary</option>
                             <option value="2" >Lightly Active</option>
@@ -119,12 +125,7 @@ class Register extends Component {
                             <option value="4">Very Active</option>
                         </select>
                     </div>
-                    <div>
-                        <button type="submit">
-                            Create your Tamagotchi
-                        </button>
-                    </div>
-                    <Link to='/login'><p>Account already created? Login Here</p></Link>
+                    <Link className="sign-in" to='/TamagotchiMe'>Create your Tamagotchi</Link>
                     <div> {this.state.response.content.error}</div>
                 </form>
             </div>

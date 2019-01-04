@@ -1,0 +1,26 @@
+.register-container {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    width: 1280px;
+}
+
+.register-info {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    justify-content: flex-start;
+    margin-left: 30px;
+}
+
+.register-text {
+    font-size: 1.25rem;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+
+select {
+    height: 25px;
+    font-size: 1rem;
+}
