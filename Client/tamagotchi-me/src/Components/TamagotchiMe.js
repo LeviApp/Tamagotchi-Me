@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import overeating from '../Images/overeating.svg';
-// import undereating from '../Images/undereating.svg';
-// import neutral from '../Images/neutral.svg';
+import undereating from '../skinny.svg';
+import neutral from '../normal.svg';
 
 class TamagotchiMe extends Component {
     state = {
         dailyCalories: '',
         caloriesRemaining: 1200,
-        foodState: 'overate'
+        foodState: 'neutral'
     }
     
     componentDidMount() {
@@ -37,26 +37,26 @@ class TamagotchiMe extends Component {
             <div className="app-container">
                 <p>TamagotchiMe</p>
 
-                {this.state.foodState === 'neutral'
-                    ? [
-                        // <img src={neutral} />
-                    ]
-                    : null
-                }
-                {this.state.foodState === 'underate' 
-                    ? [
-                        // <img src={undereating} />
-                    ]
-                    : null
-                }
-                {this.state.foodState === 'overate'
-                    ? [
-                        <img src={overeating} />
-                    ]
-                    : null
-                }
-
                 <p>Your tamagotchi can still eat {this.state.caloriesRemaining} calories today. Feed it well!</p>
+
+            {this.state.foodState === 'neutral'
+                ? [
+                    <img src={neutral} />
+                ]
+                : null
+            }
+            {this.state.foodState === 'underate' 
+                ? [
+                    <img src={undereating} />
+                ]
+                : null
+            }
+            {this.state.foodState === 'overate'
+                ? [
+                    <img src={overeating} />
+                ]
+                : null
+            }
             </div>
         );
     }
