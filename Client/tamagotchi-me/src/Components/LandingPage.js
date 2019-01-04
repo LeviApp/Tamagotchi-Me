@@ -9,8 +9,8 @@ class LandingPage extends Component {
         return (
             <div className="app-container">
                 <div className="logo-group">
-                <Logo className="logohead" />
-                <h1>TamagotchiMe!</h1>
+                <Logo className="logoheadBig" />
+                <h1 className="h1" >TamagotchiMe!</h1>
                 <p>Keep track of your healthy lifestyle. Keep Tamagotchi happy to earn prizes.</p>
                 </div>
                 <div className='mainoptions'>
