@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './Login.css';
+import {ReactComponent as Logo} from '../Images/logohead.svg'
+
+import './Login.scss';
 class Login extends Component {
     state = {
         username: '',
@@ -47,8 +49,12 @@ class Login extends Component {
     render() {
         return (
             <div className="login-container">
+            <div className="logo-header">
+                <Logo className="logohead"/>
+                <h1>Sign In</h1>
+            </div>
+
                 <form className='login-form' onSubmit={this.submitHandler.bind(this)}>
-                    <h1>Sign In</h1>
                     <div>
                         <p>Username</p>
                         <input
