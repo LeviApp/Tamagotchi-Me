@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import '../Images/overeating.svg';
+import overeating from '../Images/overeating.svg';
+// import undereating from '../Images/undereating.svg';
+// import neutral from '../Images/neutral.svg';
 
 class TamagotchiMe extends Component {
     state = {
         dailyCalories: '',
         caloriesRemaining: 1200,
-        foodState: ''
+        foodState: 'overate'
     }
     
     componentDidMount() {
@@ -37,19 +39,19 @@ class TamagotchiMe extends Component {
 
                 {this.state.foodState === 'neutral'
                     ? [
-                        <img src='' />
+                        // <img src={neutral} />
                     ]
                     : null
                 }
                 {this.state.foodState === 'underate' 
                     ? [
-                        <img src='' />
+                        // <img src={undereating} />
                     ]
                     : null
                 }
                 {this.state.foodState === 'overate'
                     ? [
-                        <img src='' />
+                        <img src={overeating} />
                     ]
                     : null
                 }

@@ -49,7 +49,7 @@ class Register extends Component {
                 })
             });
         console.log('state', this.state);
-        this.props.history.push('/TamagatchiMe');
+        this.props.history.push('/tamagotchime');
     };
     render() {
         return (
