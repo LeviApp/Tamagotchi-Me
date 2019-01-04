@@ -6,6 +6,13 @@
         width: 250px;
         margin: 30px;
     }
+
+    .login-container {
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        width: 1280px;
+    }
         
     .logohead {
     background-color: aqua;
@@ -19,4 +26,39 @@
     width:150px;
     font-size: 1.75rem;
     align-items: center;
+    }
+
+    .login-text {
+        font-size: 1.25rem;
+        align-self: flex-start;
+        margin-bottom: 10px;
+    }
+
+    input {
+        height: 25px;
+        font-size: 1rem;
+    }
+
+    .login-info {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        justify-content: flex-start;
+        margin-left: 30px;
+    }
+
+    .sign-in {
+        margin-left: 30px;
+        margin-top: 20px;
+
+    }
+
+    form {
+        display:flex;
+        flex-direction: column;
+        background-color: aqua;
+        width: 300px;
+        margin-left: 30px;
+        justify-content: center;
+        border: 1px solid black;
     }

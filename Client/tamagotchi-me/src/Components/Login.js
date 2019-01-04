@@ -55,8 +55,8 @@ class Login extends Component {
             </div>
 
                 <form className='login-form' onSubmit={this.submitHandler.bind(this)}>
-                    <div>
-                        <p>Username</p>
+                    <div className='login-info'>
+                        <p className="login-text">Username:</p>
                         <input
                             value={this.state.username}
                             onChange={this.inputChangeHandler}
@@ -64,8 +64,8 @@ class Login extends Component {
                             type="text"
                             name="username" />
                     </div>
-                    <div>
-                        <p>Password</p>
+                    <div className='login-info'>
+                        <p className="login-text">Password:</p>
                         <input
                             value={this.state.password}
                             onChange={this.inputChangeHandler}
@@ -73,12 +73,8 @@ class Login extends Component {
                             type="password"
                             name="password" />
                     </div>
-                    <div>
-                        <button type="submit">
-                            Sign In
-                        </button>
-                    </div>
-                    <Link to='/Register'> <p>Don't have an account? Register Here</p> </Link>
+                    <Link className="sign-in" to='/TamagotchiMe'>Sign In</Link>
+
                     <div> <p>{this.state.response.content.error}</p></div>
                 </form>
             </div>

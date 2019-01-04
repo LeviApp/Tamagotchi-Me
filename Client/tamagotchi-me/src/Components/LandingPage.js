@@ -11,7 +11,7 @@ class LandingPage extends Component {
                 <div className="logo-group">
                 <Logo className="logoheadBig" />
                 <h1 className="h1" >TamagotchiMe!</h1>
-                <p>Keep track of your healthy lifestyle. Keep Tamagotchi happy to earn prizes.</p>
+                <p className="p">Keep track of your healthy lifestyle. Keep Tamagotchi happy to earn prizes.</p>
                 </div>
                 <div className='mainoptions'>
 
